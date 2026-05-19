@@ -52,10 +52,7 @@ app.get("/callback", (req, res) => {
   const code = req.query.code;
   const state = req.query.state;
 
-  // Retrieve verifier using state
   const codeVerifier = stateStore[state];
-
-  // Clean up
   delete stateStore[state];
 
   res.send(`
@@ -77,6 +74,9 @@ app.get("/callback", (req, res) => {
 
         <h3>Redirect URI</h3>
         <div class="box">${REDIRECT_URI}</div>
+
+        <h3>Full URL (Debug)</h3>
+        <div class="box">${JSON.stringify(req.query)}</div>
       </body>
     </html>
   `);
