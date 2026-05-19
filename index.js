@@ -22,7 +22,7 @@ function sha256(buffer) {
 
 app.get("/", (req, res) => {
   const state = uuidv4();
-  const scope = "online_access patient/Patient.read";
+  const scope = "openid fhirUser online_access patient/Patient.read";
 
   // Generate per-request verifier
   const codeVerifier = base64URLEncode(crypto.randomBytes(32));
