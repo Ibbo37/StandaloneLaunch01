@@ -6,7 +6,7 @@ const app = express();
 
 const CLIENT_ID = "LE6F5gp-Pg7hQOjH6aAaCYQAKe9SYMR9lQBzySCPw3w";
 
-const REDIRECT_URI = "http://localhost:3000/callback";
+const REDIRECT_URI = "https://standalonelaunch01.onrender.com/callback";
 
 const AUTH_URL = "https://staging-oauthserver.ecwcloud.com/oauth/oauth2/authorize";
 
@@ -27,7 +27,7 @@ const codeChallenge = base64URLEncode(sha256(codeVerifier));
 // Step 1 — Redirect user to ECW login
 app.get("/", (req, res) => {
   const state = uuidv4();
-  const scope = "openid fhirUser offline_access patient/Patient.read";
+  const scope = "offline_access patient/Patient.read";
 
   const authUrl =
     `${AUTH_URL}` +
@@ -60,5 +60,5 @@ app.get("/callback", (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+  console.log("Server running on https://standalonelaunch01.onrender.com");
 });
