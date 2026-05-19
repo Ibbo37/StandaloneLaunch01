@@ -6,7 +6,7 @@ const app = express();
 
 const CLIENT_ID = "LE6F5gp-Pg7hQOjH6aAaCYQAKe9SYMR9lQBzySCPw3w";
 
-const REDIRECT_URI = "http://localhost:3000/callback";
+const REDIRECT_URI = "https://verdict-yiddish-helping.ngrok-free.dev/callback";
 
 const AUTH_URL = "https://staging-oauthserver.ecwcloud.com/oauth/oauth2/authorize";
 
